@@ -1,0 +1,641 @@
+/* =========================================================
+   VitaBridge - Stylesheet
+   ========================================================= */
+
+:root {
+  --navy: #092147;
+  --navy-footer: #01308C;
+  --navy-footer-dark: #012366;
+  --green: #147C0D;
+  --green-dark: #0F6209;
+  --green-light-bg: #EAFDE9;
+  --white: #FFFFFF;
+  --grey-text: #5A6472;
+  --pill-blue-bg: #E7F1FC;
+  
+  --container-width: 1180px;
+  --radius-pill: 999px;
+  --radius-card: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--navy);
+  line-height: 1.5;
+  background: var(--white);
+}
+
+img { max-width: 100%; display: block; }
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a { text-decoration: none; color: inherit; }
+
+ul { list-style: none; }
+
+/* -------------------- Buttons -------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.btn:hover { transform: translateY(-2px); opacity: 0.92; }
+
+.btn-grey {
+  background: #E3E3E3;
+  color: var(--navy);
+}
+
+.btn-green {
+  background: var(--green);
+  color: var(--white);
+}
+
+/* -------------------- Images -------------------- */
+.hero-image img,
+.welcome-image img,
+.tip-image img {
+  width: 100%;
+  border-radius: var(--radius-card);
+  object-fit: cover;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.site-header {
+  background: var(--white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--navy);
+  white-space: nowrap;
+}
+
+.logo-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- Hamburger (pure CSS, driven by a hidden checkbox) ---- */
+.nav-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  z-index: 200;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--navy);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-toggle:checked ~ .hamburger span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.nav-toggle:checked ~ .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle:checked ~ .hamburger span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ---- Main nav (desktop) ---- */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 26px;
+}
+
+.nav-links a {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--navy);
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  border-bottom-color: var(--green);
+  color: var(--green);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+}
+
+.nav-link-plain {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('../images/header.jpeg');
+  padding: 56px 0 40px;
+}
+
+.hero-wrap {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.hero-text { flex: 1 1 480px; }
+
+.hero-text h1 {
+  font-size: 2.6rem;
+  line-height: 1.15;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 18px;
+}
+
+.hero-text h1 span {
+  display: block;
+  color: green;
+}
+
+.hero-text p {
+  color: black;
+  font-size: 1rem;
+  max-width: 440px;
+  margin-bottom: 28px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-image {
+  flex: 1 1 420px;
+   min-height: 75vh;
+}
+
+/* =========================================================
+   WELCOME SECTION
+   ========================================================= */
+.welcome {
+  background: var(--white);
+  padding: 40px 0 60px;
+}
+
+.welcome-wrap {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.welcome-image { flex: 1 1 380px; }
+
+.welcome-text { flex: 1 1 480px; }
+
+.pill-label {
+  display: inline-block;
+  background: var(--pill-blue-bg);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 18px;
+}
+
+.welcome-text h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.4;
+  margin-bottom: 18px;
+}
+
+.learn-more {
+  font-weight: 700;
+  color: var(--green);
+  border-bottom: 2px solid var(--green);
+  padding-bottom: 2px;
+}
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
+.features {
+  background: #D9D9D9;
+  padding-bottom: 50px;
+}
+
+.features-banner {
+  background: var(--green);
+  padding: 14px 0;
+  margin-bottom: 40px;
+}
+
+.features-banner h3 {
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.feature-card {
+  background: var(--green);
+  color: var(--white);
+  border-radius: var(--radius-card);
+  padding: 28px 20px;
+  min-height: 130px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.feature-card h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* =========================================================
+   DAILY HEALTH TIP
+   ========================================================= */
+.daily-tip {
+  background: var(--green-light-bg);
+  padding: 44px 0;
+}
+
+.tip-wrap {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.tip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  background: var(--white);
+  border: 1px solid #cfe8cd;
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  color: var(--green-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.tip-text { flex: 1 1 300px; }
+
+.tip-text h4 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.tip-text p {
+  color: var(--grey-text);
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  max-width: 420px;
+}
+
+.more-tips {
+  font-weight: 700;
+  color: var(--green-dark);
+}
+
+.tip-image {
+  flex: 0 0 220px;
+}
+
+.tip-image img {
+  border-radius: var(--radius-pill);
+  height: 70px;
+  width: 200px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer {
+  background: var(--navy-footer);
+  color: var(--white);
+  padding-top: 50px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 0.7fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.footer-col h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-logo-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.footer-logo-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.social-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+
+.social-linkedin { background: #0A66C2; }
+.social-facebook { background: #1877F2; }
+.social-instagram { background: radial-gradient(circle at 30% 110%, #fdf497, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+.social-youtube { background: #FF0000; }
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: #D9E3F0;
+  font-size: 0.9rem;
+}
+
+.footer-col ul li a:hover { color: var(--white); }
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #D9E3F0;
+  font-size: 0.9rem;
+}
+
+.footer-newsletter p {
+  color: #D9E3F0;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+  max-width: 260px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input {
+  flex: 1 1 160px;
+  padding: 11px 16px;
+  border-radius: var(--radius-pill);
+  border: none;
+  font-size: 0.9rem;
+  min-width: 0;
+}
+
+.newsletter-form .btn {
+  padding: 11px 20px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.footer-bottom {
+  background: var(--navy-footer-dark);
+  padding: 16px 0;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: #D9E3F0;
+}
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+@media (max-width: 992px) {
+  .hero-text h1 { font-size: 2.1rem; }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - MOBILE + TABLET NAV (hamburger dropdown)
+   ========================================================= */
+@media (max-width: 900px) {
+  .hamburger { display: flex; }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .nav-toggle:checked ~ .main-nav {
+    max-height: 420px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    padding: 10px 24px 0;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid #eef1f5;
+  }
+
+  .nav-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 14px;
+    padding: 16px 24px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-wrap,
+  .welcome-wrap {
+    flex-direction: column;
+  }
+
+  .hero-image, .welcome-image { width: 100%; }
+
+  .hero-text p { max-width: 100%; }
+
+  .features-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .tip-wrap {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .tip-text p { max-width: 100%; }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 { font-size: 1.7rem; }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-buttons .btn {
+    text-align: center;
+    width: 100%;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form .btn { width: 100%; text-align: center; }
+}
