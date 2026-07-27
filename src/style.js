@@ -16,3 +16,28 @@ mobileNav.querySelectorAll('a').forEach(link => {
     hamburger.setAttribute('aria-expanded', 'false');
   });
 });
+
+emailjs.init("YOUR_PUBLIC_KEY");
+
+const form = document.getElementById("contact-form");
+const successMessage = document.getElementById("success-message");
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
+        form
+    ).then(function () {
+
+        successMessage.classList.add("show");
+        form.reset();
+
+    }).catch(function (error) {
+
+        alert("Message failed to send.");
+        console.log(error);
+
+    });
+});
