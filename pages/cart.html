@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Cart - VitaBridge</title>
+   <script src="https://kit.fontawesome.com/b7859905d2.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../src/style.css">
 </head>
 <body>
@@ -32,7 +33,9 @@
           <li><a href="topics.html">Topics</a></li>
           <li><a href="products.html">Products</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <div class="nav-actions">
+        </ul>
+
+        <div class="nav-actions">
           <a href="cart.html" class="icon-btn active" aria-label="View cart">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="9" cy="21" r="1"/>
@@ -43,7 +46,6 @@
           <a href="login.html" class="nav-link-plain">Login</a>
           <a href="signup.html" class="nav-link-plain">sign-up</a>
         </div>
-        </ul>
       </nav>
     </div>
   </header>
@@ -68,6 +70,24 @@
         <p>Looks like you haven't added anything yet. Browse our products to get started.</p>
         <a href="products.html" class="btn btn-green">Shop Products</a>
       </div>
+
+      <div class="payment-methods-section">
+        <h3 class="section-heading" style="margin-top:0;">Payment Methods</h3>
+        <p class="payment-methods-note">Once you're ready to check out, we accept the MOMO as a payment method:</p>
+
+        <div class="payment-methods">
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" checked>
+            <span class="payment-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+            </span>
+            <span class="payment-details">
+              <strong>Mobile Money (MoMo)</strong>
+              <span>0548781601 &mdash; ISHA DEDEI ARMAH</span>
+            </span>
+          </label>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -79,12 +99,9 @@
           <img src="../images/LOGO.jpeg" alt="VitaBridge logo">
         </span>
 
-       <ul class="social-list">
+         <ul class="social-list">
           <li>
-            <a href="https://" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" style="color: rgb(116, 192, 252);"></i></a> 
-          </li>
-          <li>
-            <a href="http://" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook" style="color: rgb(116, 192, 252);"></i></a>
+            <a href="https://www.facebook.com/profile.php?fb_profile_edit_entry_point=%7B%22click_point%22%3A%22edit_profile_button%22%2C%22feature%22%3A%22profile_header%22%7D&id=61592346311819&sk=about" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook" style="color: rgb(116, 192, 252);"></i></a>
           </li>
           <li>
             <a href="https://www.instagram.com/vitabridge_?igsh=ZXk0MjFvYmxraGY2" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram" style="color: rgb(223, 62, 62);"></i></i></a>
@@ -98,12 +115,13 @@
       <div class="footer-col footer-links">
         <h5>Quick Links</h5>
         <ul>
-          <li><a href="../index.html" class="dimmed">Home</a></li>
+          <li><a href="../index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="topics.html">Topics</a></li>
           <li><a href="products.html">Products</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="#faqs">FAQs</a></li>
+          <li><a href="blog.html">Blogs</a></li>
+          <li><a href="faqs.html">FAQs</a></li>
         </ul>
       </div>
 
