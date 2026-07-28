@@ -449,7 +449,7 @@ ul { list-style: none; }
 
 .social-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
 }
 
