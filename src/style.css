@@ -202,6 +202,29 @@ ul { list-style: none; }
   align-items: center;
   justify-content: center;
   color: var(--navy);
+  position: relative;
+}
+
+.cart-badge {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--green);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.add-cart-btn.added {
+  background: var(--green-dark);
 }
 
 .nav-link-plain {
@@ -1679,7 +1702,7 @@ ul { list-style: none; }
    CART PAGE
    ========================================================= */
 .cart-layout {
-  display: grid;
+  display: none;
   grid-template-columns: 1fr 340px;
   gap: 28px;
   padding: 40px 0 60px;
