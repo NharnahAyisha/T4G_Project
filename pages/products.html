@@ -44,6 +44,7 @@
               <circle cx="20" cy="21" r="1"/>
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
             </svg>
+            <span class="cart-badge">0</span>
           </a>
           <a href="login.html" class="nav-link-plain">Login</a>
           <a href="signup.html" class="nav-link-plain">sign-up</a>
@@ -63,13 +64,11 @@
 
     <section class="container">
 
-      <div class="category-filters">
-        <input type="radio" name="category" id="tab-all" class="category-filter-input" checked>
-        <input type="radio" name="category" id="tab-health" class="category-filter-input">
-        <input type="radio" name="category" id="tab-firstaid" class="category-filter-input">
-        <input type="radio" name="category" id="tab-sanitation" class="category-filter-input">
-        <input type="radio" name="category" id="tab-personal" class="category-filter-input">
-      </div>
+      <input type="radio" name="category" id="tab-all" class="category-filter-input" checked>
+      <input type="radio" name="category" id="tab-health" class="category-filter-input">
+      <input type="radio" name="category" id="tab-firstaid" class="category-filter-input">
+      <input type="radio" name="category" id="tab-sanitation" class="category-filter-input">
+      <input type="radio" name="category" id="tab-personal" class="category-filter-input">
 
       <div class="filter-tabs">
         <label for="tab-all" class="filter-tab">
@@ -97,148 +96,148 @@
           <h3 style="color:var(--navy); font-weight:800; margin-bottom:20px;">All Products</h3>
 
           <div class="products-grid">
-            <article class="product-card cat-health">
+            <article class="product-card cat-health" data-name="Blood Glucose Monitor" data-price="180" data-image="images/product-glucose-monitor.png">
               <div class="product-photo">
                 <img src="../images/glucometer.jpeg" alt="Blood glucose monitor">
               </div>
               <h4 class="product-name">Blood Glucose Monitor</h4>
-              <p class="price">GHS¢ 200</p>
-              <a href="cart.html" class="add-cart-btn">
+              <p class="price">GHS 180</p>
+              <button type="button" class="add-cart-btn js-add-to-cart">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
                 Add to Cart
-              </a>
+              </button>
             </article>
 
-            <article class="product-card cat-health">
+            <article class="product-card cat-health" data-name="Blood Pressure Monitor" data-price="220" data-image="images/product-bp-monitor.png">
               <div class="product-photo">
                 <img src="../images/syphgmomanometer.jpeg" alt="Blood pressure monitor">
               </div>
               <h4 class="product-name">Blood Pressure Monitor</h4>
-              <p class="price">GHS¢ 250</p>
-              <a href="cart.html" class="add-cart-btn">
+              <p class="price">GHS 250</p>
+              <button type="button" class="add-cart-btn js-add-to-cart">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
                 Add to Cart
-              </a>
+              </button>
             </article>
 
-            <article class="product-card cat-health">
-              <div class="product-photo">
-                <img src="../images/thermometer.jpeg" alt="Digital thermometer">
-              </div>
-              <h4 class="product-name">Digital Infrared Thermometer</h4>
-              <p class="price">GHS¢ 60</p>
-              <a href="cart.html" class="add-cart-btn">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-                Add to Cart
-              </a>
-            </article>
-
-            <article class="product-card cat-firstaid">
-              <div class="product-photo">
-                <img src="../images/first aid box.jpg" alt="First aid kit">
-              </div>
-              <h4 class="product-name">First Aid Kit</h4>
-              <p class="price">GHS¢ 500</p>
-              <a href="cart.html" class="add-cart-btn">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-                Add to Cart
-              </a>
-            </article>
-
-            <article class="product-card cat-sanitation">
-              <div class="product-photo">
-                <img src="../images/hand sanitizer.jpg" alt="Hand sanitizer">
-              </div>
-              <h4 class="product-name">Hand Sanitizer Gel</h4>
-              <p class="price">GHS¢ 15</p>
-              <a href="cart.html" class="add-cart-btn">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-                Add to Cart
-              </a>
-            </article>
-
-            <article class="product-card cat-personal">
-              <div class="product-photo">
-                <img src="../images/oral irrigator.jpg" alt="Oral Irrigator">
-              </div>
-              <h4 class="product-name">Oral irrigator</h4>
-              <p class="price">GHS¢ 200</p>
-              <a href="cart.html" class="add-cart-btn">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-                Add to Cart
-              </a>
-            </article>
-
-            <article class="product-card cat-firstaid">
-              <div class="product-photo">
-                <img src="../images/nosemask.jpg" alt="Nose mask">
-              </div>
-              <h4 class="product-name">Nose Mask</h4>
-              <p class="price">GHS¢ 20</p>
-              <a href="cart.html" class="add-cart-btn">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-                Add to Cart
-              </a>
-            </article>
-
-            <article class="product-card cat-firstaid">
+            <article class="product-card cat-health" data-name="Digital Infrared Thermometer" data-price="95" data-image="images/product-thermometer.png">
               <div class="product-photo">
                 <img src="../images/thermometer 2.jpeg" alt="Digital thermometer">
               </div>
-              <h4 class="product-name">Digital thermometer</h4>
-              <p class="price">GHS¢ 25</p>
-              <a href="cart.html" class="add-cart-btn">
+              <h4 class="product-name">Digital Thermometer</h4>
+              <p class="price">GHS 25</p>
+              <button type="button" class="add-cart-btn js-add-to-cart">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
                 Add to Cart
-              </a>
+              </button>
             </article>
 
-            <article class="product-card cat-sanitation">
+            <article class="product-card cat-firstaid" data-name="First Aid Kit" data-price="120" data-image="images/logo.png">
               <div class="product-photo">
-                <img src="../images/rubbing alcohol.jpg" alt="Rubbing Alcohol">
+                <img src="../images/first aid box.jpg" alt="first aid kit">
+              </div>
+              <h4 class="product-name">First Aid Kit</h4>
+              <p class="price">GHS 120</p>
+              <button type="button" class="add-cart-btn js-add-to-cart">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                Add to Cart
+              </button>
+            </article>
+
+            <article class="product-card cat-sanitation" data-name="Hand Sanitizer Gel" data-price="25" data-image="images/logo.png">
+              <div class="product-photo">
+                <img src="../images/hand sanitizer.jpg" alt="hand sanitizer">
+              </div>
+              <h4 class="product-name">Hand Sanitizer Gel</h4>
+              <p class="price">GHS 25</p>
+              <button type="button" class="add-cart-btn js-add-to-cart">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                Add to Cart
+              </button>
+            </article>
+
+            <article class="product-card cat-personal" data-name="Antibacterial Soap" data-price="15" data-image="images/logo.png">
+              <div class="product-photo">
+                <img src="../images/dettol.jpg" alt="antibacterial soap">
+              </div>
+              <h4 class="product-name">Antibacterial soap</h4>
+              <p class="price">GHS 15</p>
+              <button type="button" class="add-cart-btn js-add-to-cart">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                Add to Cart
+              </button>
+            </article>
+
+            <article class="product-card cat-firstaid" data-name="Adhesive Bandage Pack" data-price="18" data-image="images/logo.png">
+              <div class="product-photo">
+                <img src="../images/adhesive bandage.jpg" alt="">
+              </div>
+              <h4 class="product-name">Adhesive Bandage Pack</h4>
+              <p class="price">GHS 18</p>
+              <button type="button" class="add-cart-btn js-add-to-cart">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                Add to Cart
+              </button>
+            </article>
+
+            <article class="product-card cat-firstaid" data-name="Antiseptic Wound Spray" data-price="35" data-image="images/logo.png">
+              <div class="product-photo">
+                <img src="../images/wound spray.jpg" alt="">
+              </div>
+              <h4 class="product-name">Antiseptic Wound Spray</h4>
+              <p class="price">GHS 35</p>
+              <button type="button" class="add-cart-btn js-add-to-cart">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                Add to Cart
+              </button>
+            </article>
+
+            <article class="product-card cat-sanitation" data-name="70% Rubbing Alcohol" data-price="20" data-image="images/logo.png">
+              <div class="product-photo">
+                <img src="../images/rubbing alcohol.jpg" alt="rubbing alcohol">
               </div>
               <h4 class="product-name">70% Rubbing Alcohol</h4>
-              <p class="price">GHS¢ 25</p>
-              <a href="cart.html" class="add-cart-btn">
+              <p class="price">GHS 20</p>
+              <button type="button" class="add-cart-btn js-add-to-cart">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
                 Add to Cart
-              </a>
+              </button>
             </article>
 
-            <article class="product-card cat-sanitation">
+            <article class="product-card cat-sanitation" data-name="Disinfectant Surface Wipes" data-price="22" data-image="images/logo.png">
               <div class="product-photo">
-                <img src="../images/disinfectant wipe.jpg" alt="Disinfectant Wipe">
+                <img src="../images/disinfectant wipe.jpg" alt="wipe">
               </div>
               <h4 class="product-name">Disinfectant Surface Wipes</h4>
-              <p class="price">GHS¢ 30</p>
-              <a href="cart.html" class="add-cart-btn">
+              <p class="price">GHS 22</p>
+              <button type="button" class="add-cart-btn js-add-to-cart">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
                 Add to Cart
-              </a>
+              </button>
             </article>
 
-            <article class="product-card cat-personal">
+            <article class="product-card cat-personal" data-name="Vitamin C Supplement" data-price="40" data-image="images/logo.png">
               <div class="product-photo">
-                <img src="../images/sachet mouth wash.jpg" alt="mouth wash">
+                <img src="../images/vitamin c.jpg" alt="vitamin c">
               </div>
-              <h4 class="product-name">Sachet mouth wash</h4>
-              <p class="price">GHS¢ 20</p>
-              <a href="cart.html" class="add-cart-btn">
+              <h4 class="product-name">Vitamin C Supplement</h4>
+              <p class="price">GHS 40</p>
+              <button type="button" class="add-cart-btn js-add-to-cart">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
                 Add to Cart
-              </a>
+              </button>
             </article>
 
-            <article class="product-card cat-personal">
+            <article class="product-card cat-personal" data-name="Moisturizing Body Lotion" data-price="30" data-image="images/logo.png">
               <div class="product-photo">
-                <img src="../images/hand cream.jpg" alt="">
+                <img src="../images/lotion.jpg" alt="">
               </div>
-              <h4 class="product-name">Moisturizing hand Cream</h4>
-              <p class="price">GHS¢ 10</p>
-              <a href="cart.html" class="add-cart-btn">
+              <h4 class="product-name">Moisturizing Body Lotion</h4>
+              <p class="price">GHS 30</p>
+              <button type="button" class="add-cart-btn js-add-to-cart">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
                 Add to Cart
-              </a>
+              </button>
             </article>
           </div>
         </div>
@@ -272,8 +271,7 @@
       </div>
     </section>
   </main>
-
-  <footer class="site-footer">
+ <footer class="site-footer">
     <div class="container footer-grid">
 
       <div class="footer-col footer-brand">
@@ -281,7 +279,7 @@
           <img src="../images/LOGO.jpeg" alt="VitaBridge logo">
         </span>
 
-         <ul class="social-list">
+        <ul class="social-list">
           <li>
             <a href="https://www.facebook.com/profile.php?fb_profile_edit_entry_point=%7B%22click_point%22%3A%22edit_profile_button%22%2C%22feature%22%3A%22profile_header%22%7D&id=61592346311819&sk=about" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook" style="color: rgb(116, 192, 252);"></i></a>
           </li>
@@ -297,7 +295,7 @@
       <div class="footer-col footer-links">
         <h5>Quick Links</h5>
         <ul>
-          <li><a href="../index.html" class="dimmed">Home</a></li>
+          <li><a href="../index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="topics.html">Topics</a></li>
           <li><a href="products.html">Products</a></li>
@@ -339,6 +337,7 @@
       <p>Copyright &copy; 2026 VitaBridge. All Right Reserved</p>
     </div>
   </footer>
+
   <script src="../src/style.js"></script>
 </body>
 </html>

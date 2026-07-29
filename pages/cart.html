@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Review your VitaBridge cart and choose a payment method: Mobile Money or Bank Transfer.">
+  <link rel="icon" href="../images/LOGO.jpeg" type="image/png">
   <title>Your Cart - VitaBridge</title>
-   <script src="https://kit.fontawesome.com/b7859905d2.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/b7859905d2.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../src/style.css">
 </head>
 <body>
@@ -42,6 +44,7 @@
               <circle cx="20" cy="21" r="1"/>
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
             </svg>
+            <span class="cart-badge">0</span>
           </a>
           <a href="login.html" class="nav-link-plain">Login</a>
           <a href="signup.html" class="nav-link-plain">sign-up</a>
@@ -59,7 +62,7 @@
       </div>
     </section>
 
-    <section class="container">
+    <section class="container" data-cart-root>
       <div class="empty-cart">
         <svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--grey-text); margin:0 auto;">
           <circle cx="9" cy="21" r="1"/>
@@ -71,9 +74,42 @@
         <a href="products.html" class="btn btn-green">Shop Products</a>
       </div>
 
+      <div class="cart-layout cart-summary-wrap">
+        <div>
+          <div class="cart-items"></div>
+          <a href="products.html" class="continue-shopping">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+            Continue Shopping
+          </a>
+        </div>
+
+        <aside class="cart-summary">
+          <h3>Order Summary</h3>
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span class="js-subtotal">GHS 0</span>
+          </div>
+          <div class="summary-row">
+            <span>Delivery Fee</span>
+            <span class="js-delivery">GHS 0</span>
+          </div>
+          <div class="summary-row total">
+            <span>Total</span>
+            <span class="js-total">GHS 0</span>
+          </div>
+
+          <button type="button" class="btn btn-navy checkout-btn">Proceed to Checkout</button>
+
+          <p class="secure-note">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+            Secured payment
+          </p>
+        </aside>
+      </div>
+
       <div class="payment-methods-section">
         <h3 class="section-heading" style="margin-top:0;">Payment Methods</h3>
-        <p class="payment-methods-note">Once you're ready to check out, we accept the MOMO as a payment method:</p>
+        <p class="payment-methods-note">Once you're ready to check out, we accept the following payment methods:</p>
 
         <div class="payment-methods">
           <label class="payment-option">
@@ -83,7 +119,7 @@
             </span>
             <span class="payment-details">
               <strong>Mobile Money (MoMo)</strong>
-              <span>0548781601 &mdash; ISHA DEDEI ARMAH</span>
+              <span>054781601 &mdash; ISHA DEDEI ARMAH</span>
             </span>
           </label>
         </div>
@@ -99,7 +135,7 @@
           <img src="../images/LOGO.jpeg" alt="VitaBridge logo">
         </span>
 
-         <ul class="social-list">
+        <ul class="social-list">
           <li>
             <a href="https://www.facebook.com/profile.php?fb_profile_edit_entry_point=%7B%22click_point%22%3A%22edit_profile_button%22%2C%22feature%22%3A%22profile_header%22%7D&id=61592346311819&sk=about" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook" style="color: rgb(116, 192, 252);"></i></a>
           </li>
@@ -134,7 +170,7 @@
           </li>
           <li>
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6 12 13 2 6"/><path d="M2 6h20v12H2z"/></svg>
-            <span>info@vitabridge.com</span>
+            <span>vitabridgeheal@gmail.com</span>
           </li>
           <li>
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -157,6 +193,7 @@
       <p>Copyright &copy; 2026 VitaBridge. All Right Reserved</p>
     </div>
   </footer>
-   <script src="../src/style.js"></script>
+
+  <script src="../src/style.js"></script>
 </body>
 </html>
