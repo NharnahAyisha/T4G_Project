@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Review your VitaBridge cart and choose a payment method: Mobile Money or Bank Transfer.">
-  <link rel="icon" href="../images/LOGO.jpeg" type="image/png">
+  <link rel="icon" href="../images/LOGO.jpeg" type="image/jpeg">
   <title>Your Cart - VitaBridge</title>
   <script src="https://kit.fontawesome.com/b7859905d2.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../src/style.css">
@@ -14,7 +14,7 @@
   <header class="site-header">
     <div class="container nav-wrap">
 
-      <a href="../index.html" class="logo">
+      <a href="index.html" class="logo">
         <span class="logo-icon" aria-hidden="true">
           <img src="../images/LOGO.jpeg" alt="VitaBridge logo">
         </span>
@@ -34,6 +34,7 @@
           <li><a href="about.html">About</a></li>
           <li><a href="topics.html">Topics</a></li>
           <li><a href="products.html">Products</a></li>
+          <li><a href="tools.html">Tools</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
 
@@ -85,6 +86,21 @@
 
         <aside class="cart-summary">
           <h3>Order Summary</h3>
+
+          <div class="delivery-location">
+            <label class="field-label" style="margin-bottom:10px;">Delivery Location</label>
+            <label class="delivery-option">
+              <input type="radio" name="deliveryLocation" value="15" class="js-delivery-radio" checked>
+              <span>Accra <em>(1-2 business days)</em></span>
+              <strong>GHS 15</strong>
+            </label>
+            <label class="delivery-option">
+              <input type="radio" name="deliveryLocation" value="30" class="js-delivery-radio">
+              <span>Other Regions in Ghana <em>(3-5 business days)</em></span>
+              <strong>GHS 30</strong>
+            </label>
+          </div>
+
           <div class="summary-row">
             <span>Subtotal</span>
             <span class="js-subtotal">GHS 0</span>
@@ -122,6 +138,17 @@
               <span>054781601 &mdash; ISHA DEDEI ARMAH</span>
             </span>
           </label>
+
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod">
+            <span class="payment-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M4 10h16"/><path d="M5 6l7-4 7 4"/><path d="M5 10v8M9 10v8M15 10v8M19 10v8"/></svg>
+            </span>
+            <span class="payment-details">
+              <strong>Bank Transfer</strong>
+              <span>Account details will be shared at checkout</span>
+            </span>
+          </label>
         </div>
       </div>
     </section>
@@ -151,7 +178,7 @@
       <div class="footer-col footer-links">
         <h5>Quick Links</h5>
         <ul>
-          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html" class="dimmed">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="topics.html">Topics</a></li>
           <li><a href="products.html">Products</a></li>
@@ -170,7 +197,7 @@
           </li>
           <li>
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6 12 13 2 6"/><path d="M2 6h20v12H2z"/></svg>
-            <span>vitabridgeheal@gmail.com</span>
+            <span>info@vitabridge.com</span>
           </li>
           <li>
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -194,6 +221,6 @@
     </div>
   </footer>
 
-  <script src="../src/style.js"></script>
+  <script src="../src/cart.js"></script>
 </body>
 </html>
