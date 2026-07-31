@@ -356,12 +356,28 @@ ul { list-style: none; }
   padding: 28px 20px;
   min-height: 130px;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.feature-card:hover {
+  background: var(--green-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(9, 33, 71, 0.15);
 }
 
 .feature-card h4 {
   font-size: 1.05rem;
   font-weight: 700;
+}
+
+.feature-card-external {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* =========================================================
@@ -1247,6 +1263,15 @@ ul { list-style: none; }
   transform: translateY(-50%);
   color: var(--grey-text);
   display: flex;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.field-icon-right:hover {
+  color: var(--navy);
 }
 
 .remember-row {
@@ -2137,4 +2162,293 @@ summary:focus-visible,
 .product-card:focus-within {
   outline: 2px solid var(--green);
   outline-offset: 2px;
+}
+
+.results-count {
+  color: var(--grey-text);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* =========================================================
+   DELIVERY LOCATION SELECTOR (Cart page)
+   ========================================================= */
+.delivery-location {
+  margin-bottom: 22px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #a9c2d6;
+}
+
+.delivery-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--white);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.delivery-option:last-child { margin-bottom: 0; }
+
+.delivery-option:has(input:checked) {
+  border-color: var(--green);
+}
+
+.delivery-option input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--green);
+  flex-shrink: 0;
+}
+
+.delivery-option span {
+  flex: 1;
+  font-size: 0.85rem;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.delivery-option span em {
+  display: block;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--grey-text);
+  font-size: 0.78rem;
+  margin-top: 2px;
+}
+
+.delivery-option strong {
+  color: var(--navy);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   HEALTH TOOLS PAGE
+   ========================================================= */
+.tools-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 44px 0 30px;
+}
+
+.tool-card {
+  background: var(--card-grey);
+  border-radius: var(--radius-card);
+  padding: 32px;
+}
+
+.tool-card h2 {
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tool-card > p {
+  color: var(--grey-text);
+  margin-bottom: 22px;
+  max-width: 640px;
+}
+
+.tool-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--green);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ---- BMI Checker ---- */
+.bmi-form {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.bmi-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bmi-form label {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 0.88rem;
+}
+
+.bmi-form input {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #cfd7de;
+  font-size: 0.9rem;
+  width: 160px;
+}
+
+.bmi-result {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 20px 24px;
+  flex-wrap: wrap;
+}
+
+.bmi-value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.bmi-category {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.bmi-category.underweight { background: #dbeafe; color: #1d4ed8; }
+.bmi-category.normal { background: var(--green-light-bg); color: var(--green-dark); }
+.bmi-category.overweight { background: #fef3c7; color: #b45309; }
+.bmi-category.obese { background: #fee2e2; color: #b91c1c; }
+
+.bmi-scale-note {
+  color: var(--grey-text);
+  font-size: 0.82rem;
+  flex-basis: 100%;
+}
+
+/* ---- Water Intake Tracker ---- */
+.water-progress-bar {
+  width: 100%;
+  height: 16px;
+  background: var(--white);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.water-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+  border-radius: var(--radius-pill);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.water-count-text {
+  color: var(--navy);
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.water-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ---- Blood Pressure Log ---- */
+.bp-form {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin-bottom: 22px;
+}
+
+.bp-form input {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #cfd7de;
+  font-size: 0.9rem;
+  width: 170px;
+}
+
+.bp-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.bp-table th,
+.bp-table td {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 0.88rem;
+  color: var(--navy);
+  border-bottom: 1px solid #ececec;
+}
+
+.bp-table th {
+  background: #eef1f5;
+  font-weight: 700;
+}
+
+.bp-category-tag {
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.78rem;
+  display: inline-block;
+}
+
+.bp-category-tag.normal { background: var(--green-light-bg); color: var(--green-dark); }
+.bp-category-tag.elevated { background: #fef3c7; color: #b45309; }
+.bp-category-tag.high1 { background: #ffe4d5; color: #c2410c; }
+.bp-category-tag.high2 { background: #fee2e2; color: #b91c1c; }
+
+.bp-delete-btn {
+  color: #c0392b;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.bp-empty {
+  color: var(--grey-text);
+  font-size: 0.9rem;
+  padding: 20px;
+  text-align: center;
+  background: var(--white);
+  border-radius: 12px;
+}
+
+/* ---- Disclaimer ---- */
+.tools-disclaimer {
+  background: var(--hero-blue);
+  border-radius: var(--radius-card);
+  padding: 20px 26px;
+  color: var(--navy);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 600px) {
+  .bmi-form, .bp-form { flex-direction: column; align-items: stretch; }
+  .bmi-form input, .bp-form input { width: 100%; }
+  .bp-table { font-size: 0.8rem; }
+  .bp-table th, .bp-table td { padding: 10px; }
 }
