@@ -40,7 +40,7 @@ form.addEventListener("submit", function (e) {
         console.log(error);
 
     });
-});*/
+});
 
 /* =========================================================
    VitaBridge - cart.js
@@ -246,3 +246,208 @@ document.addEventListener("DOMContentLoaded", () => {
   wireAddToCartButtons();
   renderCartPage();
 });
+
+(function () {
+  // Tools page helpers: BMI, Water tracker, Blood Pressure log
+  function wireBMI() {
+    const heightEl = document.getElementById('bmiHeight');
+    const weightEl = document.getElementById('bmiWeight');
+    const calcBtn = document.getElementById('bmiCalcBtn');
+    const resultWrap = document.getElementById('bmiResult');
+    const valueEl = document.getElementById('bmiValue');
+    const categoryEl = document.getElementById('bmiCategory');
+    if (!calcBtn || !heightEl || !weightEl || !resultWrap) return;
+
+    calcBtn.addEventListener('click', () => {
+      const height = parseFloat(heightEl.value);
+      const weight = parseFloat(weightEl.value);
+      if (!height || !weight || height <= 0 || weight <= 0) {
+        // show simple feedback
+        resultWrap.style.display = 'block';
+        valueEl.textContent = '--';
+        categoryEl.textContent = 'Please enter valid height and weight.';
+        return;
+      }
+
+      const meters = height / 100;
+      const bmi = weight / (meters * meters);
+      const rounded = Math.round(bmi * 10) / 10;
+      let category = '';
+      if (bmi < 18.5) category = 'Underweight';
+      else if (bmi < 25) category = 'Normal';
+      else if (bmi < 30) category = 'Overweight';
+      else category = 'Obese';
+
+      valueEl.textContent = rounded.toFixed(1);
+      categoryEl.textContent = category;
+      resultWrap.style.display = 'block';
+    });
+  }
+
+  function wireWater() {
+    const WATER_KEY = 'vitabridge_water';
+    const fill = document.getElementById('waterFill');
+    const countEl = document.getElementById('waterCount');
+    const addBtn = document.getElementById('waterAddBtn');
+    const resetBtn = document.getElementById('waterResetBtn');
+    const GOAL = 8;
+    if (!fill || !countEl || !addBtn || !resetBtn) return;
+
+    function todayKey() {
+      return new Date().toISOString().slice(0, 10);
+    }
+
+    function load() {
+      try {
+        const raw = localStorage.getItem(WATER_KEY);
+        return raw ? JSON.parse(raw) : {};
+      } catch (e) {
+        console.error('Failed to load water data', e);
+        return {};
+      }
+    }
+
+    function save(data) {
+      try {
+        localStorage.setItem(WATER_KEY, JSON.stringify(data));
+      } catch (e) {
+        console.error('Failed to save water data', e);
+      }
+    }
+
+    function getCount() {
+      const data = load();
+      return Number(data[todayKey()] || 0);
+    }
+
+    function setCount(n) {
+      const data = load();
+      data[todayKey()] = n;
+      save(data);
+    }
+
+    function updateUI() {
+      const count = getCount();
+      countEl.textContent = String(count);
+      const pct = Math.min(100, Math.round((count / GOAL) * 100));
+      fill.style.width = pct + '%';
+    }
+
+    addBtn.addEventListener('click', () => {
+      const current = getCount();
+      setCount(current + 1);
+      updateUI();
+    });
+
+    resetBtn.addEventListener('click', () => {
+      setCount(0);
+      updateUI();
+    });
+
+    // initialize
+    updateUI();
+  }
+
+  function wireBP() {
+    const BP_KEY = 'vitabridge_bp_readings';
+    const systolicEl = document.getElementById('bpSystolic');
+    const diastolicEl = document.getElementById('bpDiastolic');
+    const addBtn = document.getElementById('bpAddBtn');
+    const tableBody = document.getElementById('bpTableBody');
+    const emptyEl = document.getElementById('bpEmpty');
+    if (!systolicEl || !diastolicEl || !addBtn || !tableBody || !emptyEl) return;
+
+    function load() {
+      try {
+        const raw = localStorage.getItem(BP_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        console.error('Failed to load bp data', e);
+        return [];
+      }
+    }
+
+    function save(list) {
+      try {
+        localStorage.setItem(BP_KEY, JSON.stringify(list));
+      } catch (e) {
+        console.error('Failed to save bp data', e);
+      }
+    }
+
+    function classify(s, d) {
+      // simple categories
+      if (s < 120 && d < 80) return 'Normal';
+      if (s < 130 && d < 80) return 'Elevated';
+      if ((s >= 130 && s < 140) || (d >= 80 && d < 90)) return 'Hypertension Stage 1';
+      if (s >= 140 || d >= 90) return 'Hypertension Stage 2';
+      return 'Uncategorized';
+    }
+
+    function render() {
+      const list = load();
+      tableBody.innerHTML = '';
+      if (!list.length) {
+        emptyEl.style.display = 'block';
+        return;
+      }
+      emptyEl.style.display = 'none';
+
+      list.slice().reverse().forEach((entry) => {
+        const tr = document.createElement('tr');
+        const dateTd = document.createElement('td');
+        const readingTd = document.createElement('td');
+        const catTd = document.createElement('td');
+        const actionsTd = document.createElement('td');
+
+        dateTd.textContent = new Date(entry.date).toLocaleString();
+        readingTd.textContent = `${entry.systolic} / ${entry.diastolic}`;
+        catTd.textContent = classify(entry.systolic, entry.diastolic);
+
+        const del = document.createElement('button');
+        del.type = 'button';
+        del.className = 'btn btn-ghost';
+        del.textContent = 'Delete';
+        del.addEventListener('click', () => {
+          const remaining = load().filter((e) => e.id !== entry.id);
+          save(remaining);
+          render();
+        });
+
+        actionsTd.appendChild(del);
+        tr.appendChild(dateTd);
+        tr.appendChild(readingTd);
+        tr.appendChild(catTd);
+        tr.appendChild(actionsTd);
+        tableBody.appendChild(tr);
+      });
+    }
+
+    addBtn.addEventListener('click', () => {
+      const s = parseInt(systolicEl.value, 10);
+      const d = parseInt(diastolicEl.value, 10);
+      if (!s || !d || s <= 0 || d <= 0) {
+        alert('Please enter valid numeric systolic and diastolic values.');
+        return;
+      }
+
+      const list = load();
+      list.push({ id: Date.now(), date: new Date().toISOString(), systolic: s, diastolic: d });
+      save(list);
+      systolicEl.value = '';
+      diastolicEl.value = '';
+      render();
+    });
+
+    render();
+  }
+
+  function wireTools() {
+    wireBMI();
+    wireWater();
+    wireBP();
+  }
+
+  // initialize tools when tools page loads
+  document.addEventListener('DOMContentLoaded', wireTools);
+})();
