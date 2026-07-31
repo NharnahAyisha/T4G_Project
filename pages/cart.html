@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Review your VitaBridge cart and choose a payment method: Mobile Money or Bank Transfer.">
-  <link rel="icon" href="../images/LOGO.jpeg" type="image/jpeg">
+  <meta name="description" content="Review your VitaBridge cart and pay securely via Mobile Money.">
+  <link rel="icon" href="../images/LOGO.jpeg" type="image/png">
   <title>Your Cart - VitaBridge</title>
   <script src="https://kit.fontawesome.com/b7859905d2.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../src/style.css">
@@ -14,13 +14,14 @@
   <header class="site-header">
     <div class="container nav-wrap">
 
-      <a href="index.html" class="logo">
+      <a href="../index.html" class="logo">
         <span class="logo-icon" aria-hidden="true">
           <img src="../images/LOGO.jpeg" alt="VitaBridge logo">
         </span>
         VitaBridge
       </a>
 
+      <!-- checkbox-based toggle so the mobile menu works with no JS -->
       <input type="checkbox" id="navToggle" class="nav-toggle">
       <label for="navToggle" class="hamburger" aria-label="Toggle navigation menu">
         <span></span>
@@ -39,7 +40,7 @@
         </ul>
 
         <div class="nav-actions">
-          <a href="cart.html" class="icon-btn active" aria-label="View cart">
+          <a href="cart.html" class="icon-btn" aria-label="View cart">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="9" cy="21" r="1"/>
               <circle cx="20" cy="21" r="1"/>
@@ -114,7 +115,9 @@
             <span class="js-total">GHS 0</span>
           </div>
 
-          <button type="button" class="btn btn-navy checkout-btn">Proceed to Checkout</button>
+          <!-- Proceed to Checkout now actually reveals the MoMo payment instructions box below with the exact
+         amount to send. -->
+          <button type="button" id="checkoutBtn" class="btn btn-navy checkout-btn">Proceed to Checkout</button>
 
           <p class="secure-note">
             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
@@ -123,13 +126,14 @@
         </aside>
       </div>
 
-      <div class="payment-methods-section">
-        <h3 class="section-heading" style="margin-top:0;">Payment Methods</h3>
-        <p class="payment-methods-note">Once you're ready to check out, we accept the following payment methods:</p>
+      <!-- Payment section: Mobile Money only, as requested. Hidden until
+           "Proceed to Checkout" is clicked -->
+      <div class="payment-methods-section" id="checkoutPanel" style="display:none;">
+        <h3 class="section-heading" style="margin-top:0;">Complete Your Payment</h3>
+        <p class="payment-methods-note">Send your total of <strong class="js-checkout-total">GHS 0</strong> via Mobile Money to the number below, then click "I've Sent Payment" to confirm your order.</p>
 
         <div class="payment-methods">
-          <label class="payment-option">
-            <input type="radio" name="paymentMethod" checked>
+          <div class="payment-option payment-option-momo">
             <span class="payment-icon">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
             </span>
@@ -137,22 +141,21 @@
               <strong>Mobile Money (MoMo)</strong>
               <span>054781601 &mdash; ISHA DEDEI ARMAH</span>
             </span>
-          </label>
+          </div>
+        </div>
 
-          <label class="payment-option">
-            <input type="radio" name="paymentMethod">
-            <span class="payment-icon">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M4 10h16"/><path d="M5 6l7-4 7 4"/><path d="M5 10v8M9 10v8M15 10v8M19 10v8"/></svg>
-            </span>
-            <span class="payment-details">
-              <strong>Bank Transfer</strong>
-              <span>Account details will be shared at checkout</span>
-            </span>
-          </label>
+        <button type="button" id="confirmPaymentBtn" class="btn btn-green" style="margin-top:18px;">I've Sent Payment</button>
+
+        <div class="checkout-confirmation" id="checkoutConfirmation" style="display:none;">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+          <div>
+            <strong>Thank you! Your order has been received.</strong>
+            <p>You can also send us the payment screenshot on WhatsApp for confirmation.</p>
+          </div>
         </div>
       </div>
     </section>
-  </main>
+</main>
 
   <footer class="site-footer">
     <div class="container footer-grid">
@@ -164,13 +167,19 @@
 
         <ul class="social-list">
           <li>
-            <a href="https://www.facebook.com/profile.php?fb_profile_edit_entry_point=%7B%22click_point%22%3A%22edit_profile_button%22%2C%22feature%22%3A%22profile_header%22%7D&id=61592346311819&sk=about" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook" style="color: rgb(116, 192, 252);"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61592346311819" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <i class="fa-brands fa-facebook" style="color: rgb(116, 192, 252);"></i>
+            </a>
           </li>
           <li>
-            <a href="https://www.instagram.com/vitabridge_?igsh=ZXk0MjFvYmxraGY2" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram" style="color: rgb(223, 62, 62);"></i></i></a>
+            <a href="https://www.instagram.com/vitabridge_?igsh=ZXk0MjFvYmxraGY2" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <i class="fa-brands fa-instagram" style="color: rgb(223, 62, 62);"></i>
+            </a>
           </li>
           <li>
-            <a href="https://www.tiktok.com/@vitabridge_?_r=1&_t=ZS-98ODxrPH8gJ" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok" style="color: rgb(6, 6, 6);"></i></a>
+            <a href="https://www.tiktok.com/@vitabridge_?_r=1&_t=ZS-98ODxrPH8gJ" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <i class="fa-brands fa-tiktok" style="color: rgb(6, 6, 6);"></i>
+            </a>
           </li>
         </ul>
       </div>
@@ -197,7 +206,7 @@
           </li>
           <li>
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6 12 13 2 6"/><path d="M2 6h20v12H2z"/></svg>
-            <span>info@vitabridge.com</span>
+            <span>vitabridgeheal@gmail.com</span>
           </li>
           <li>
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -220,6 +229,12 @@
       <p>Copyright &copy; 2026 VitaBridge. All Right Reserved</p>
     </div>
   </footer>
+
+  <!-- Floating WhatsApp button - visible on every page -->
+  <a href="https://wa.me/233548781601?text=Hi%20VitaBridge%2C%20I%20have%20a%20question"
+     class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
 
   <script src="../src/style.js"></script>
 </body>
